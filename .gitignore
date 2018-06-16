@@ -1,0 +1,7 @@
+/__pycache__
+
+_ref/
+_model/
+
+*pyc
+*pdf

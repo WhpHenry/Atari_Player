@@ -8,8 +8,9 @@ Reference also and recommended:
  
 Here just take `MsPacman-v0` and `Pong-v0(default)` as examples, you can find more from:
  [openai/atari-py](https://github.com/openai/atari-py) 
- if you want others, please find name, add it into your play.py
- don't forget update corresponding state img cut size in 'preprocess'
+
+If you want others, please find name, add it into your play.py. 
+don't forget update corresponding state img cut size in 'preprocess'
 
 ## Basic Enviornment and Requirement:
 - Python 3.6

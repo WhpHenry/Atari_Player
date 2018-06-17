@@ -6,9 +6,10 @@ Code is based on the book:
 Reference also and recommended:
  [OpenAI Gym](http://gym.openai.com/docs/) 
  
-Here just take `MsPacman-v0` as example, you can find more from:
+Here just take `MsPacman-v0` and `Pong-v0(default)` as examples, you can find more from:
  [openai/atari-py](https://github.com/openai/atari-py) 
- 
+ if you want others, please find name, add it into your play.py
+ don't forget update corresponding state img cut size in 'preprocess'
 
 ## Basic Enviornment and Requirement:
 - Python 3.6

@@ -128,17 +128,29 @@ class DQNet:
         else:        
             return np.argmax(q_values) 
 
+    def init_sess_config(self, allow_growth=True, gpu_memory_frac=1.0):
+        '''
+            allow_growth: if True, gpu memory will increase by requirement 
+            gpu_memory_frac: percentage of gpu memory use
+        '''
+        options = tf.GPUOptions(allow_growth=allow_growth,  
+                                per_process_gpu_memory_fraction=gpu_memory_frac)
+        return tf.ConfigProto(gpu_options=options)
+
     def training(self, env, game_name, preprocess_obs, 
               model_path = _model_path,
               start_steps = _skip_start,
               train_start = _train_start,
               train_interval = _train_interval,
               discount = _discount_rate,
-              batch_size = _batch_size):
+              batch_size = _batch_size,
+              sess_conf = None):
         train_step = 0
         iteration = 0
         done = True
-        with tf.Session() as sess:
+        if sess_conf is None:
+            sess_conf = self.init_sess_config()
+        with tf.Session(config=sess_conf) as sess:
             saver = tf.train.Saver() 
             sess.run(tf.global_variables_initializer())
             checkpoint = tf.train.get_checkpoint_state(model_path)

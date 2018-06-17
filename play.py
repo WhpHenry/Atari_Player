@@ -7,11 +7,11 @@ game_name = {
     'pacman' : 'MsPacman-v0'
 }
 
-def preprocess(obs, game=game_name['pacman']):
+def preprocess(obs, game=game_name['pong']):
     if game == 'MsPacman-v0':
-        img = obs[1:176:2, ::2]         # cut
+        img = obs[1:176:2, ::2]         # cut pacman
     elif game == 'Pong-v0':
-        img = obs[25:200:2, ::2]         # cut
+        img = obs[25:200:2, ::2]        # cut pong
     img = img.mean(axis=2)          # gray
     img = (img - 128) / 128 - 1     # regularization   
     return img.reshape(88, 80, 1) 

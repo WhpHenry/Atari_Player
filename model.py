@@ -195,7 +195,7 @@ class DQNet:
                                 }
                     )
                     train_step += 1
-                    print("Training in step - {}, Loss - {}".format(train_step, loss))
+                    # print("Training in step - {}, Loss - {}".format(train_step, loss))
 
                 if (train_step % _copy_steps) and (train_step != 0):            
                     self.copy_train_to_actor.run()
